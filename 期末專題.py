@@ -37,11 +37,11 @@ while True:
     
     v2 = lightspeed / n_air
     theta_2 = theta_1 * n_prev / n_air  
-    ray.v = (v2 * cos(theta_2), v2 * sin(theta_2), 0)
+    ray.v = vector(v2 * cos(theta_2), v2 * sin(theta_2), 0)
     
     #update
     n_prev = n_air
     ray.prev_v = ray.v 
-    theta_1 = atan(ray.v[1] / ray.v[0]) #v[1]為y座標 v[0]為x座標
+    theta_1 = atan(ray.v.y / ray.v.x) #v[1]為y座標 v[0]為x座標 <- 不能這樣寫 要寫.x .y
 
     
