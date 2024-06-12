@@ -5,7 +5,7 @@ scene = canvas(background=vec(0.8, 0.8, 0.8), width=1200, height=300, center=vec
 
 
     ray = sphere(pos=vec(-6, 0.5, 0), color=color.blue, radius=0.01, make_trail=True)
-    ##ray.v = 
+    ray.v = vector(cos(angle / 40.0), sin(angle / 40.0), 0)
 
     dt = 0.001
 
