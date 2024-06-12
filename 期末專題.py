@@ -5,7 +5,7 @@ scene = canvas(background=vec(0.8, 0.8, 0.8), width=1200, height=300, center=vec
 
 temperature_0 = 40    #攝氏度
 pressure_0 = 1        #標準大氣壓(atm)
-lightspeed = 1.0        #暫時設為1 (之後調成3e+8)
+lightspeed = 1.0        #暫時設為1 (之後調成3e+8 2.997*10^8)
 theta_0 = 0
 lamda = 4.5e-7
 n_ref = 1 + (0.0000632 + (0.0295 * lamda * lamda / (146 * lamda * lamda - 1)))
