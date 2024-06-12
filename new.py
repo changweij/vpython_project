@@ -18,9 +18,38 @@ t = 0
 dt = 0.001
 g = 9.8
 
-while True:
-    rate(1000)
+#f1: y = -x + 50
+#    y' = -1
+#    angle = atan(-y') = atan(1)
 
-    ball1.v += vector(g/2, -g/2, 0) * dt
+angle1 = atan(1) 
+while True:
+
+    rate(5000)
+
+    ball1.v += vector(g * sin(angle1) * cos(angle1), -g * sin(angle1) * sin(angle1), 0) * dt
     ball1.pos.x += ball1.v.x * dt
     ball1.pos.y += ball1.v.y * dt
+    
+    if(ball1.pos.x >= 50):
+        break
+
+
+#f2: y = 0.02(x - 50)^2 - 50 = 0.02x^2 - 2x
+#    y' = 0.04x - 2
+#    angle = atan(-y') = atan(2 - 0.04x)
+
+t = 0
+while True:
+    rate(5000)
+    
+    angle2 = atan(2 - 0.04 * ball2.pos.x)
+    ball2.v += vector(g * sin(angle2) * cos(angle2), -g * sin(angle2) * sin(angle2), 0) * dt
+    ball2.pos.x += ball2.v.x * dt
+    ball2.pos.y += ball2.v.y * dt
+    
+    print(ball2.v.x)
+    print(ball2.v.y)
+    
+    if(ball2.pos.x >= 50):
+        break
