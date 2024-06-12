@@ -15,7 +15,7 @@ ball2.v = vector(0, 0, 0)
 ball3.v = vector(0, 0, 0)
 
 t = 0
-dt = 0.001
+dt = 0.0001
 g = 9.8
 
 #f1: y = -x + 50
@@ -41,6 +41,8 @@ while True:
 
 t = 0
 time = 0
+vt = 0
+at = 0
 while True:
     rate(5000)
     
@@ -49,11 +51,16 @@ while True:
     ball2.a = vector(g * (slope / (1 + slope * slope)), -g * (slope * slope / (1 + slope * slope)), 0)
     ball2.v += ball2.a * dt
     ball2.pos.x += ball2.v.x * dt
-    ball2.pos.y += ball2.v.y * dt
+    ball2.pos.y = 0.02 * (ball2.pos.x - 50)**2 - 50
+    
+    at = g * (slope / sqrt(1 + slope * slope))
+    vt += at * dt
+    ball3.v.x = vt * (1 / sqrt(1 + slope * slope))
+    ball3.v.y = -vt * (slope / sqrt(1 + slope * slope))
+    ball3.pos.x += ball3.v.x * dt
+    ball3.pos.y += ball3.v.y * dt
     
     
-    ball3.pos.x = time
-    ball3.pos.y = 0.02*(time - 50)*(time - 50) - 50
     
     time += 10 * dt
     print(ball2.a.x)
