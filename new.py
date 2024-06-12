@@ -40,16 +40,24 @@ while True:
 #    angle = atan(-y') = atan(2 - 0.04x)
 
 t = 0
+time = 0
 while True:
     rate(5000)
     
-    angle2 = atan(2 - 0.04 * ball2.pos.x)
-    ball2.v += vector(g * sin(angle2) * cos(angle2), -g * sin(angle2) * sin(angle2), 0) * dt
+    slope = 2 - 0.04 * ball2.pos.x
+    
+    ball2.a = vector(g * (slope / (1 + slope * slope)), -g * (slope * slope / (1 + slope * slope)), 0)
+    ball2.v += ball2.a * dt
     ball2.pos.x += ball2.v.x * dt
     ball2.pos.y += ball2.v.y * dt
     
-    print(ball2.v.x)
-    print(ball2.v.y)
+    
+    ball3.pos.x = time
+    ball3.pos.y = 0.02*(time - 50)*(time - 50) - 50
+    
+    time += 10 * dt
+    print(ball2.a.x)
+    print(ball2.a.y)
     
     if(ball2.pos.x >= 50):
         break
