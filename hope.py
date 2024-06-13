@@ -7,13 +7,13 @@ m1 = 10
 m2 = 10
 k1 = 1
 k2 = 1
-scene = canvas(width = 800, height = 800, center = vec(0,height/2,0), background=vec(0.5,0.5,0)) # open a window
+scene = canvas(width = 800, height = 800, center = vec(0,height/2,0), background=vec(0.5,0.5,0), color = color.white) # open a window
 floor = box(length = 200, height = 0.01, width = 10, color = color.black) # the floor
 #curve(pos=[vec(-150, height, 0), vec(500, height, 0)], color=color.white, radius=0.02)
 ball_0 = sphere(pos = vec( -60, height, 0), radius = size, color=color.red) # the ball
-ball_1 = sphere(pos = vec( -50, height, 0), radius = size, color=color.green) # the ball
-ball_2 = sphere(pos = vec( -40, height, 0), radius = size, color=color.blue) # the ball
-center_of_mass = arrow(pos=vec(0, height * 2, 0), axis=vec(0, -5, 0), shaftwidth = 2)
+ball_1 = sphere(pos = vec( -50, height, 0), radius = size, color=color.blue) # the ball
+ball_2 = sphere(pos = vec( -40, height, 0), radius = size, color=color.yellow) # the ball
+center_of_mass = arrow(pos=vec(0, height * 2, 0), axis=vec(0, -5, 0), shaftwidth = 1, color = color.green)
 
 #msg = text(text = 'Free Fall', pos = vec(-10, 10, 0))
 
